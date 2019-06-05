@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> <!-- FULL JQUERY WITH AJAX!!! -->
     <script> // ONSEN NAV
         window.fn = {};
@@ -28,18 +29,30 @@
         };
     </script>
     <script>
-        var prev = function() {
-          var carousel = document.getElementById('carousel');
-          carousel.prev();
+        var prev1 = function() {
+          var carousel1 = document.getElementById('carousel1');
+          carousel1.prev();
         };
 
-        var next = function() {
-          var carousel = document.getElementById('carousel');
-          carousel.next();
+        var next1 = function() {
+          var carousel1 = document.getElementById('carousel1');
+          carousel1.next();
         };
 
+        var prev2 = function() {
+          var carousel2 = document.getElementById('carousel2');
+          carousel2.prev();
+        };
+
+        var next2 = function() {
+          var carousel2 = document.getElementById('carousel2');
+          carousel2.next();
+        };
         ons.ready(function() {
-          var carousel = document.addEventListener('postchange', function(event) {
+          var carousel1 = document.addEventListener('postchange', function(event) {
+            console.log('Changed to ' + event.activeIndex)
+          });
+          var carousel2 = document.addEventListener('postchange', function(event) {
             console.log('Changed to ' + event.activeIndex)
           });
         });
@@ -55,10 +68,6 @@
           border: solid 1px #c0c0c0;
         }
 
-        #mypage .page__background {
-          background-image: url('img/file.jpg');
-        }
-
         .divCar {
           height:188px;
           width:100%;
@@ -66,7 +75,6 @@
           font-size: 30px;
           color: #fff;
           overflow: hidden;
-          border-bottom: solid 2px black;
         }
 
         .bots {
@@ -76,77 +84,176 @@
           font-size: 30px;
           color: #fff;
           overflow: hidden;
-          border: solid 1px black;
-          border-left: solid 1px black;
+          margin: 1px;
+        }
+
+        .dvContainer1 {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          z-index: 10;
+          opacity: 1;
           margin: 0px;
+          background-color: #000000;
+        }
+
+        .dvInsideTL1 {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100px;
+          opacity: 1;
+          z-index: 20;
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        .dvContainer2 {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          z-index: 10;
+          opacity: 1;
+          margin: 0px;
+          background-color: #000000;
+        }
+
+        .dvInsideTL2 {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100px;
+          opacity: 1;
+          z-index: 20;
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        .dvContainer3 {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          z-index: 10;
+          opacity: 1;
+          margin: 0px;
+          background-color: #000000;
+        }
+
+        .dvInsideTL3 {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100px;
+          opacity: 1;
+          z-index: 20;
+          text-align: center;
+          margin-top: 465px;
+        }
+
+        .txtCarousel
+        {
+          font-family: 'Oswald', sans-serif;
+          font-size: 30px;
+          float:left;
+          text-align: left;
+          color:white;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left:20px;
+          padding-right:20px;
+          text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+        }
+
+        .page {
+          background-color: black;
         }
     </style>
-  <body>
-    <ons-page style="background-color: #000000;">
-      <ons-toolbar>
-        <div class="left">
-          <ons-toolbar-button onclick="prev()">
-            <ons-icon icon="md-chevron-left"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-        <div class="center">RouteMyTrips</div>
-        <div class="right">
-          <ons-toolbar-button onclick="next()">
-            <ons-icon icon="md-chevron-right"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-      </ons-toolbar>
-      <ons-carousel horizontal swipeable auto-scroll overscrollable id="carousel" style="height:190px">
-        <ons-carousel-item>
-          <div class="divCar">
-            <img src="imgs/port1.png" style="width:100%;">
+  <body style="background-color: #000000;">
+    <ons-page>
+      <div class="dvContainer1">
+        <ons-carousel horizontal swipeable auto-scroll overscrollable id="carousel1" style="height:185px">
+          <ons-carousel-item>
+            <div class="divCar">
+              <img src="imgs/port1.png" style="width:100%;">
+            </div>
+          </ons-carousel-item>
+          <ons-carousel-item>
+            <div class="divCar">
+              <img src="imgs/port2.png" style="width:100%;">
+            </div>
+          </ons-carousel-item>
+          <ons-carousel-item>
+            <div class="divCar">
+              <img src="imgs/port3.png" style="width:100%;">
+            </div>
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+      <div class="dvInsideTL1">
+          <div style="margin-bottom:40px;">
+            <img src="imgs/logo.png" width="150">
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item>
-          <div class="divCar">
-            <img src="imgs/port2.png" style="width:100%;">
+          <div class="left" style="float:left; padding:10px;">
+            <img src="imgs/arrowLeft.png" onclick="prev1()" width="30">
           </div>
-        </ons-carousel-item>
-        <ons-carousel-item>
-          <div class="divCar">
-            <img src="imgs/port3.png" style="width:100%;">
+          <div class="txtCarousel">Portugal</div>
+          <div style="float:right; padding:10px;" class="right">
+            <img src="imgs/arrowRight.png" onclick="next1()" width="30">
           </div>
-        </ons-carousel-item>
-      </ons-carousel>
-
-      <ons-carousel horizontal swipeable auto-scroll overscrollable id="carouse2" style="height: 190px">
+      </div>
+      <div class="dvContainer2">
+      <ons-carousel horizontal swipeable auto-scroll overscrollable id="carousel2" style="height: 185px">
         <ons-carousel-item style="">
           <div class="divCar">
             <img src="imgs/rio1.png" style="width:100%;">
           </div>
         </ons-carousel-item>
         <ons-carousel-item style="">
-          <div style="text-align: center; font-size: 30px; color: #fff;">
+          <div style="text-align: center; font-size: 30px;">
             <img src="imgs/rio2.png" style="width:100%;">
           </div>
         </ons-carousel-item>
         <ons-carousel-item style="">
-          <div style="text-align: center; font-size: 30px; color: #fff;">
-            <img src="imgs/rio2.png" style="width:100%;">
+          <div style="text-align: center; font-size: 30px;">
+            <img src="imgs/rio3.png" style="width:100%;">
           </div>
         </ons-carousel-item>
       </ons-carousel>
-
-      <div style="background-color: #000000;">
-        <div style="float:left; border-right: solid 2px black;" class="bots">
-              <img src="imgs/bot1.png" style="width:100%; margin: 0px;">
+    </div>
+    <div class="dvInsideTL2">
+        <div style="margin-bottom:230px;">
+          <img src="imgs/logo.png" width="150">
         </div>
-        <div style="float:right; border-left: solid 3px black;" class="bots">
-              <img src="imgs/bot2.png" style="width:100%; margin: 0px;">
+        <div class="left" style="float:left; padding:10px;">
+          <img src="imgs/arrowLeft.png" onclick="prev2()" width="30">
         </div>
+        <div class="txtCarousel">Rio de Janeiro</div>
+        <div style="float:right; padding:10px;" class="right">
+          <img src="imgs/arrowRight.png" onclick="next2()" width="30">
+        </div>
+    </div>
+    <div class="dvContainer3">
+      <div style="float:left; margin-left: 2px;" class="bots">
+            <img src="imgs/bot1.png" style="width:99%; margin: 0px;">
       </div>
-
-
-      <ons-tabbar swipeable position="bottom">
-        <ons-tab page="" label="Minhas viagens" icon="ion-calendar" active active-icon="ion-calendar"></ons-tab>
-        <ons-tab page="" label="Avaliações" icon="md-star" active-icon="md-star"></ons-tab>
-        <ons-tab page="" label="Configurações" icon="fa-cog" active-icon="fa-cog"></ons-tab>
-      </ons-tabbar>
+      <div style="float:right; margin-right: 2px;" class="bots">
+            <img src="imgs/bot2.png" style="width:99%; margin: 0px;">
+      </div>
+    </div>
+    <div class="dvInsideTL3">
+      <div class="txtCarousel" style="margin-right:43px; float:left;">Onde<br>quero ir?
+      </div>
+      <div class="txtCarousel">O que<br>quero fazer?
+      </div>
+    </div>
+    <div style="margin-top: -10px;margin-left: auto; margin-rigth:auto; background-color: black; width:100% text-align:center; display:block;">
+      <img src="imgs/tab1.png" style="width:90px; margin-left: 50px;">
+      <img src="imgs/tab2.png" style="width:90px;">
+      <img src="imgs/tab3.png" style="width:90px; margin-right: 55px;">
+    </div>
   </ons-page>
   </body>
 </html>
